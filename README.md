@@ -13,8 +13,7 @@ SQLite 3.28.0
 # Run 
 First in the cat-mash-app/ run the following command
 
-`npm install`
-`ng build`
+`npm install` and `ng build`
 
 Then in the CatMash/ run 
 
