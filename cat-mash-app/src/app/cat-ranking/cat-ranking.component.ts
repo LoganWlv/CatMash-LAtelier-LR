@@ -6,11 +6,14 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./cat-ranking.component.css']
 })
 export class CatRankingComponent implements OnInit {
-    @Input() value: string;
+    @Input() value: number;
+    @Input() maxValue: number;
     @Input() catUrl: string;
     randomColor: string = 'hsl(' + Math.random() * 360 + ', 100%, 75%)';
+    barWidth = '0%';
 
     ngOnInit() {
-        console.log("new row: " + this.value + " - " + this.catUrl);
+        const widthValue = (this.value * 100) / this.maxValue;
+        this.barWidth = widthValue + '%';
     }
 }

@@ -1,4 +1,7 @@
-<h1>Voici les chats les plus beaux !</h1>
+<div mat-dialog-content>
+    <h1 style="font-family: monospace;">Voici les chats les plus beaux !</h1>
 
-<app-cat-ranking *ngFor="let catScore of data.rankingData | keyvalue" [catUrl]="catScore.key" [value]="catScore.value">
-</app-cat-ranking>
+    <app-cat-ranking *ngFor="let key of getKeys(data.rankingData)" [catUrl]="key" [value]="data.rankingData.get(key)"
+        [maxValue]="data.maxValue">
+    </app-cat-ranking>
+</div>

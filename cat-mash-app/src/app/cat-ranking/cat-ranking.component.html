@@ -1,5 +1,6 @@
 <div class="bar-container">
     <img class="element" [src]="catUrl">
-    <div class="bar" [style.background-color]="randomColor" [style.width]="value">
+    <div class="bar" [style.background-color]="randomColor" [style.width]="barWidth">
+        <span>{{this.value}}</span>
     </div>
 </div>

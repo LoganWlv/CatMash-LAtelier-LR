@@ -6,12 +6,13 @@ import { ICatPair } from 'src/model/CatPair';
 import { IRequestVoteIn } from 'src/model/RequestVoteIn';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { strictEqual } from 'assert';
-import { stringify } from '@angular/core/src/util';
 
 export interface CatsRankingDialogData {
   catsRanking: Map<string, number>;
+  maxValue: number;
 }
+
+export const RANKING_DISPLAY_NB = 10;
 
 @Component({
   selector: 'app-root',
@@ -177,12 +178,14 @@ export class AppComponent implements OnInit {
             }
           }
         });
-        const sortStringValues = (a, b) => a[1] === b[1] ? 0 : a[1] < b[1] ? 1 : -1;
+        const sortStringValues = (a, b) => b[1] - a[1];
         rankingData = new Map<string, number>(Array.from(rankingData).sort(sortStringValues));
+        rankingData = new Map(Array.from(rankingData).splice(0, RANKING_DISPLAY_NB));
+        const maxValue = Array.from(rankingData)[0][1];
         const dialogRef = this.catRankingDialog.open(CatsRankingDialog, {
           width: '50vw',
           position: { bottom: '0' },
-          data: { rankingData }
+          data: { rankingData, maxValue }
         });
         dialogRef.afterClosed().subscribe((result) => {
         });
@@ -201,10 +204,14 @@ export class CatsRankingDialog {
 
   constructor(
     public dialogRef: MatDialogRef<CatsRankingDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: CatsRankingDialogData) { console.log("IN DIALOG"); console.log(data); }
+    @Inject(MAT_DIALOG_DATA) public data: CatsRankingDialogData) { }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  getKeys(map) {
+    return Array.from(map.keys());
   }
 
 }
