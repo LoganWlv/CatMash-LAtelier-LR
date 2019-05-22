@@ -1,0 +1,15 @@
+.bar-container {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+}
+.bar {
+    font-size: 1em;
+    box-shadow: 5px 5px 15px 5px #ffccc9;
+    border: solid 1px;
+}
+.element {
+    max-width: 5%;
+    height: auto;
+    padding-right: 5px;
+}
