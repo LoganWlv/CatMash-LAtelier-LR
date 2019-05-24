@@ -380,7 +380,7 @@ var CATS_RESOURCE = '/search/cats';
 var CATS_VOTES_RESOURCE = '/cats/votes';
 var POST_VOTE = '/vote';
 var VOTES_NUMBER_RESOURCE = 'votes/counter';
-var CLIENT_IP_RESOURCE = 'http://api.ipify.org';
+var CLIENT_IP_RESOURCE = 'https://api6.ipify.org/?format=text';
 var AppService = /** @class */ (function () {
     function AppService(http) {
         this.http = http;

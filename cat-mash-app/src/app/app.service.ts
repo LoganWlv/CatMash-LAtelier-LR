@@ -11,7 +11,7 @@ const CATS_RESOURCE = '/search/cats';
 const CATS_VOTES_RESOURCE = '/cats/votes';
 const POST_VOTE = '/vote';
 const VOTES_NUMBER_RESOURCE = 'votes/counter';
-const CLIENT_IP_RESOURCE = 'http://api.ipify.org';
+const CLIENT_IP_RESOURCE = 'https://api6.ipify.org/?format=text';
 
 @Injectable()
 export class AppService {
