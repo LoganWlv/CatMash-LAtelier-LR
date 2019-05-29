@@ -26,7 +26,7 @@ HELP.md
 /build/
 
 # IDE - VSCode
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -34,15 +34,15 @@ HELP.md
 .history/*
 
 # dependencies
-/node_modules
+node_modules/
 
 # compiled output
-/dist
-/tmp
-/out-tsc
-/static
+dist/
+tmp/
+out-tsc/
+static/
 # Only exists if Bazel was run
-/bazel-out
+bazel-out/
 
 # misc
 /.sass-cache
@@ -52,4 +52,4 @@ HELP.md
 npm-debug.log
 yarn-error.log
 testem.log
-/typings
+typings/
