@@ -1,5 +1,38 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/app-cat-ranking-dialog.html":
+/*!***********************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/app-cat-ranking-dialog.html ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div mat-dialog-content>\r\n    <h1 style=\"font-family: monospace;\">Voici les chats les plus beaux !</h1>\r\n\r\n    <app-cat-ranking *ngFor=\"let key of getKeys(data.rankingData)\" [catUrl]=\"key\" [value]=\"data.rankingData.get(key)\"\r\n        [maxValue]=\"data.maxValue\">\r\n    </app-cat-ranking>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/app.component.html":
+/*!**************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/app.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"main-content\">\n  <div class=\"first-choice box\">\n    <span class=\"title title-left\">CAT</span>\n    <img *ngIf=\"isDataLoaded\" class=\"first-picture cat\" [src]=\"firstCat.url\" (click)=\"vote(true)\">\n  </div>\n  <div class=\"second-choice box\">\n    <span class=\"title title-right\">MASH</span>\n    <img *ngIf=\"isDataLoaded\" class=\"second-picture cat\" [src]=\"secondCat.url\" (click)=\"vote(false)\">\n  </div>\n  <div class=\"ranking-box\" (click)=\"openDialog()\">\n    <div class=\"ranking-box-content\">\n      <span class=\"ranking-box-main-text\">Voir les plus beaux chats</span>\n      <span class=\"ranking-box-secondary-text\">{{voteCounter}} votes</span>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/cat-ranking/cat-ranking.component.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/cat-ranking/cat-ranking.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"bar-container\">\r\n    <img class=\"element\" [src]=\"catUrl\">\r\n    <div class=\"bar\" [style.background-color]=\"randomColor\" [style.width]=\"barWidth\">\r\n        <span>{{this.value}}</span>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -23,17 +56,6 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "./src/app/app-cat-ranking-dialog.html":
-/*!*********************************************!*\
-  !*** ./src/app/app-cat-ranking-dialog.html ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div mat-dialog-content>\r\n    <h1 style=\"font-family: monospace;\">Voici les chats les plus beaux !</h1>\r\n\r\n    <app-cat-ranking *ngFor=\"let key of getKeys(data.rankingData)\" [catUrl]=\"key\" [value]=\"data.rankingData.get(key)\"\r\n        [maxValue]=\"data.maxValue\">\r\n    </app-cat-ranking>\r\n</div>"
-
-/***/ }),
-
 /***/ "./src/app/app.component.css":
 /*!***********************************!*\
   !*** ./src/app/app.component.css ***!
@@ -42,17 +64,6 @@ module.exports = "<div mat-dialog-content>\r\n    <h1 style=\"font-family: monos
 /***/ (function(module, exports) {
 
 module.exports = "@media screen and (max-width: 600px) {\r\n    .cat {\r\n        height:30vh !important;\r\n        width:30vh !important;\r\n    }\r\n    .first-picture {\r\n        border:lightgreen solid 5px !important;\r\n    }\r\n    \r\n    .second-picture {\r\n        border: lightcoral solid 5px !important;\r\n    }\r\n    .ranking-box-main-text {\r\n        font-size: 1em !important;\r\n    }\r\n    \r\n    .ranking-box-secondary-text {\r\n        font-size: 0.8em !important;\r\n    }\r\n\r\n    .cat:hover {\r\n        border: pink 5px solid !important;\r\n        cursor: pointer !important;\r\n    }\r\n}\r\n\r\n@media screen and (max-height: 300px) {\r\n    .cat {\r\n        height:30vh !important;\r\n        width:30vh !important;\r\n    }\r\n    .first-picture {\r\n        border:lightgreen solid 5px !important;\r\n    }\r\n    \r\n    .second-picture {\r\n        border: lightcoral solid 5px !important;\r\n    }\r\n    .title {\r\n        font-size: 2.5em !important;\r\n    }\r\n    .cat:hover {\r\n        border: pink 5px solid !important;\r\n        cursor: pointer !important;\r\n    }\r\n}\r\n\r\n@media screen and (max-height: 300px)  and (max-width: 600px){\r\n    .ranking-box-main-text {\r\n        font-size: 0.8em !important;\r\n    }\r\n    \r\n    .ranking-box-secondary-text {\r\n        font-size: 0.6em !important;\r\n    }\r\n}\r\n\r\n.main-content {\r\n    display: flex;\r\n    height: 100vh;\r\n}\r\n\r\n.box {\r\n    display: flex;\r\n    width: 100%;\r\n    height: 100%;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.first-choice {\r\n    background-color: lightcoral;\r\n    width: 100%;\r\n    position: relative;\r\n}\r\n\r\n.second-choice {\r\n    background-color: lightgreen;\r\n    width: 100%;\r\n    position: relative;\r\n}\r\n\r\n.cat {\r\n    height:40vh;\r\n    width:40vh;\r\n    border-radius: 50%;\r\n    transition: all 0.5s ease;\r\n}\r\n\r\n.first-picture {\r\n    border:lightgreen solid 10px;\r\n}\r\n\r\n.second-picture {\r\n    border: lightcoral solid 10px;\r\n}\r\n\r\n.cat:hover {\r\n    border: pink 12px solid;\r\n    cursor: pointer;\r\n}\r\n\r\n.title {\r\n    position: absolute;\r\n    font-weight: bold;\r\n    font-size: 5em;\r\n    font-family: monospace;\r\n    transition: all 0.5s ease;\r\n}\r\n\r\n.title-left {\r\n    top: 0;\r\n    right: 0;\r\n    color: lightgreen;\r\n    border-top: lightgreen solid 5px;\r\n    border-bottom: lightgreen solid 5px;\r\n    border-left: lightgreen solid 5px;\r\n\r\n}\r\n\r\n.title-right {\r\n    top: 0;\r\n    left: 0;\r\n    color: lightcoral;\r\n    border-top: lightcoral solid 5px;\r\n    border-bottom: lightcoral solid 5px;\r\n    border-right: lightcoral solid 5px;\r\n}\r\n\r\n.ranking-box {\r\n    position: absolute;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    bottom:0;\r\n    width: 100%;\r\n}\r\n\r\n.ranking-box-content {\r\n    border: 2px solid palevioletred;\r\n    background-color: cornflowerblue;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    font-family: monospace;\r\n    color: white;\r\n    font-weight: bold;\r\n    text-transform: uppercase;\r\n    transition: all 0.5s ease;\r\n    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\r\n    padding-right: 4em;\r\n    padding-left: 4em;\r\n    padding-bottom: 1em;\r\n    padding-top: 1em;\r\n}\r\n\r\n.ranking-box-content:hover {\r\n    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\r\n    padding-top: 1.2em;\r\n    cursor: pointer;\r\n    padding-right: 4.5em;\r\n    padding-left: 4.5em;\r\n}\r\n\r\n.ranking-box-main-text {\r\n    font-size: 1.5em;\r\n    transition: all 0.5s ease;\r\n}\r\n\r\n.ranking-box-secondary-text {\r\n    font-size: 1em;\r\n    transition: all 0.5s ease;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSTtRQUNJLHNCQUFzQjtRQUN0QixxQkFBcUI7SUFDekI7SUFDQTtRQUNJLHNDQUFzQztJQUMxQzs7SUFFQTtRQUNJLHVDQUF1QztJQUMzQztJQUNBO1FBQ0kseUJBQXlCO0lBQzdCOztJQUVBO1FBQ0ksMkJBQTJCO0lBQy9COztJQUVBO1FBQ0ksaUNBQWlDO1FBQ2pDLDBCQUEwQjtJQUM5QjtBQUNKOztBQUVBO0lBQ0k7UUFDSSxzQkFBc0I7UUFDdEIscUJBQXFCO0lBQ3pCO0lBQ0E7UUFDSSxzQ0FBc0M7SUFDMUM7O0lBRUE7UUFDSSx1Q0FBdUM7SUFDM0M7SUFDQTtRQUNJLDJCQUEyQjtJQUMvQjtJQUNBO1FBQ0ksaUNBQWlDO1FBQ2pDLDBCQUEwQjtJQUM5QjtBQUNKOztBQUVBO0lBQ0k7UUFDSSwyQkFBMkI7SUFDL0I7O0lBRUE7UUFDSSwyQkFBMkI7SUFDL0I7QUFDSjs7QUFFQTtJQUNJLGFBQWE7SUFDYixhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksYUFBYTtJQUNiLFdBQVc7SUFDWCxZQUFZO0lBQ1osdUJBQXVCO0lBQ3ZCLG1CQUFtQjtBQUN2Qjs7QUFFQTtJQUNJLDRCQUE0QjtJQUM1QixXQUFXO0lBQ1gsa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksNEJBQTRCO0lBQzVCLFdBQVc7SUFDWCxrQkFBa0I7QUFDdEI7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsVUFBVTtJQUNWLGtCQUFrQjtJQUNsQix5QkFBeUI7QUFDN0I7O0FBRUE7SUFDSSw0QkFBNEI7QUFDaEM7O0FBRUE7SUFDSSw2QkFBNkI7QUFDakM7O0FBRUE7SUFDSSx1QkFBdUI7SUFDdkIsZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixpQkFBaUI7SUFDakIsY0FBYztJQUNkLHNCQUFzQjtJQUN0Qix5QkFBeUI7QUFDN0I7O0FBRUE7SUFDSSxNQUFNO0lBQ04sUUFBUTtJQUNSLGlCQUFpQjtJQUNqQixnQ0FBZ0M7SUFDaEMsbUNBQW1DO0lBQ25DLGlDQUFpQzs7QUFFckM7O0FBRUE7SUFDSSxNQUFNO0lBQ04sT0FBTztJQUNQLGlCQUFpQjtJQUNqQixnQ0FBZ0M7SUFDaEMsbUNBQW1DO0lBQ25DLGtDQUFrQztBQUN0Qzs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixhQUFhO0lBQ2Isc0JBQXNCO0lBQ3RCLHVCQUF1QjtJQUN2QixtQkFBbUI7SUFDbkIsUUFBUTtJQUNSLFdBQVc7QUFDZjs7QUFFQTtJQUNJLCtCQUErQjtJQUMvQixnQ0FBZ0M7SUFDaEMsYUFBYTtJQUNiLHNCQUFzQjtJQUN0QixtQkFBbUI7SUFDbkIsc0JBQXNCO0lBQ3RCLFlBQVk7SUFDWixpQkFBaUI7SUFDakIseUJBQXlCO0lBQ3pCLHlCQUF5QjtJQUN6QixzRUFBc0U7SUFDdEUsa0JBQWtCO0lBQ2xCLGlCQUFpQjtJQUNqQixtQkFBbUI7SUFDbkIsZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksc0VBQXNFO0lBQ3RFLGtCQUFrQjtJQUNsQixlQUFlO0lBQ2Ysb0JBQW9CO0lBQ3BCLG1CQUFtQjtBQUN2Qjs7QUFFQTtJQUNJLGdCQUFnQjtJQUNoQix5QkFBeUI7QUFDN0I7O0FBRUE7SUFDSSxjQUFjO0lBQ2QseUJBQXlCO0FBQzdCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA2MDBweCkge1xyXG4gICAgLmNhdCB7XHJcbiAgICAgICAgaGVpZ2h0OjMwdmggIWltcG9ydGFudDtcclxuICAgICAgICB3aWR0aDozMHZoICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbiAgICAuZmlyc3QtcGljdHVyZSB7XHJcbiAgICAgICAgYm9yZGVyOmxpZ2h0Z3JlZW4gc29saWQgNXB4ICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbiAgICBcclxuICAgIC5zZWNvbmQtcGljdHVyZSB7XHJcbiAgICAgICAgYm9yZGVyOiBsaWdodGNvcmFsIHNvbGlkIDVweCAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG4gICAgLnJhbmtpbmctYm94LW1haW4tdGV4dCB7XHJcbiAgICAgICAgZm9udC1zaXplOiAxZW0gIWltcG9ydGFudDtcclxuICAgIH1cclxuICAgIFxyXG4gICAgLnJhbmtpbmctYm94LXNlY29uZGFyeS10ZXh0IHtcclxuICAgICAgICBmb250LXNpemU6IDAuOGVtICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcblxyXG4gICAgLmNhdDpob3ZlciB7XHJcbiAgICAgICAgYm9yZGVyOiBwaW5rIDVweCBzb2xpZCAhaW1wb3J0YW50O1xyXG4gICAgICAgIGN1cnNvcjogcG9pbnRlciAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LWhlaWdodDogMzAwcHgpIHtcclxuICAgIC5jYXQge1xyXG4gICAgICAgIGhlaWdodDozMHZoICFpbXBvcnRhbnQ7XHJcbiAgICAgICAgd2lkdGg6MzB2aCAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG4gICAgLmZpcnN0LXBpY3R1cmUge1xyXG4gICAgICAgIGJvcmRlcjpsaWdodGdyZWVuIHNvbGlkIDVweCAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAuc2Vjb25kLXBpY3R1cmUge1xyXG4gICAgICAgIGJvcmRlcjogbGlnaHRjb3JhbCBzb2xpZCA1cHggIWltcG9ydGFudDtcclxuICAgIH1cclxuICAgIC50aXRsZSB7XHJcbiAgICAgICAgZm9udC1zaXplOiAyLjVlbSAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG4gICAgLmNhdDpob3ZlciB7XHJcbiAgICAgICAgYm9yZGVyOiBwaW5rIDVweCBzb2xpZCAhaW1wb3J0YW50O1xyXG4gICAgICAgIGN1cnNvcjogcG9pbnRlciAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LWhlaWdodDogMzAwcHgpICBhbmQgKG1heC13aWR0aDogNjAwcHgpe1xyXG4gICAgLnJhbmtpbmctYm94LW1haW4tdGV4dCB7XHJcbiAgICAgICAgZm9udC1zaXplOiAwLjhlbSAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAucmFua2luZy1ib3gtc2Vjb25kYXJ5LXRleHQge1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMC42ZW0gIWltcG9ydGFudDtcclxuICAgIH1cclxufVxyXG5cclxuLm1haW4tY29udGVudCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgaGVpZ2h0OiAxMDB2aDtcclxufVxyXG5cclxuLmJveCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5maXJzdC1jaG9pY2Uge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogbGlnaHRjb3JhbDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG59XHJcblxyXG4uc2Vjb25kLWNob2ljZSB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBsaWdodGdyZWVuO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbn1cclxuXHJcbi5jYXQge1xyXG4gICAgaGVpZ2h0OjQwdmg7XHJcbiAgICB3aWR0aDo0MHZoO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gICAgdHJhbnNpdGlvbjogYWxsIDAuNXMgZWFzZTtcclxufVxyXG5cclxuLmZpcnN0LXBpY3R1cmUge1xyXG4gICAgYm9yZGVyOmxpZ2h0Z3JlZW4gc29saWQgMTBweDtcclxufVxyXG5cclxuLnNlY29uZC1waWN0dXJlIHtcclxuICAgIGJvcmRlcjogbGlnaHRjb3JhbCBzb2xpZCAxMHB4O1xyXG59XHJcblxyXG4uY2F0OmhvdmVyIHtcclxuICAgIGJvcmRlcjogcGluayAxMnB4IHNvbGlkO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4udGl0bGUge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBmb250LXNpemU6IDVlbTtcclxuICAgIGZvbnQtZmFtaWx5OiBtb25vc3BhY2U7XHJcbiAgICB0cmFuc2l0aW9uOiBhbGwgMC41cyBlYXNlO1xyXG59XHJcblxyXG4udGl0bGUtbGVmdCB7XHJcbiAgICB0b3A6IDA7XHJcbiAgICByaWdodDogMDtcclxuICAgIGNvbG9yOiBsaWdodGdyZWVuO1xyXG4gICAgYm9yZGVyLXRvcDogbGlnaHRncmVlbiBzb2xpZCA1cHg7XHJcbiAgICBib3JkZXItYm90dG9tOiBsaWdodGdyZWVuIHNvbGlkIDVweDtcclxuICAgIGJvcmRlci1sZWZ0OiBsaWdodGdyZWVuIHNvbGlkIDVweDtcclxuXHJcbn1cclxuXHJcbi50aXRsZS1yaWdodCB7XHJcbiAgICB0b3A6IDA7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgY29sb3I6IGxpZ2h0Y29yYWw7XHJcbiAgICBib3JkZXItdG9wOiBsaWdodGNvcmFsIHNvbGlkIDVweDtcclxuICAgIGJvcmRlci1ib3R0b206IGxpZ2h0Y29yYWwgc29saWQgNXB4O1xyXG4gICAgYm9yZGVyLXJpZ2h0OiBsaWdodGNvcmFsIHNvbGlkIDVweDtcclxufVxyXG5cclxuLnJhbmtpbmctYm94IHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgYm90dG9tOjA7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLnJhbmtpbmctYm94LWNvbnRlbnQge1xyXG4gICAgYm9yZGVyOiAycHggc29saWQgcGFsZXZpb2xldHJlZDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGNvcm5mbG93ZXJibHVlO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgZm9udC1mYW1pbHk6IG1vbm9zcGFjZTtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICAgIHRyYW5zaXRpb246IGFsbCAwLjVzIGVhc2U7XHJcbiAgICBib3gtc2hhZG93OiAwIDE0cHggMjhweCByZ2JhKDAsMCwwLDAuMjUpLCAwIDEwcHggMTBweCByZ2JhKDAsMCwwLDAuMjIpO1xyXG4gICAgcGFkZGluZy1yaWdodDogNGVtO1xyXG4gICAgcGFkZGluZy1sZWZ0OiA0ZW07XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogMWVtO1xyXG4gICAgcGFkZGluZy10b3A6IDFlbTtcclxufVxyXG5cclxuLnJhbmtpbmctYm94LWNvbnRlbnQ6aG92ZXIge1xyXG4gICAgYm94LXNoYWRvdzogMCAxNHB4IDI4cHggcmdiYSgwLDAsMCwwLjI1KSwgMCAxMHB4IDEwcHggcmdiYSgwLDAsMCwwLjIyKTtcclxuICAgIHBhZGRpbmctdG9wOiAxLjJlbTtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDQuNWVtO1xyXG4gICAgcGFkZGluZy1sZWZ0OiA0LjVlbTtcclxufVxyXG5cclxuLnJhbmtpbmctYm94LW1haW4tdGV4dCB7XHJcbiAgICBmb250LXNpemU6IDEuNWVtO1xyXG4gICAgdHJhbnNpdGlvbjogYWxsIDAuNXMgZWFzZTtcclxufVxyXG5cclxuLnJhbmtpbmctYm94LXNlY29uZGFyeS10ZXh0IHtcclxuICAgIGZvbnQtc2l6ZTogMWVtO1xyXG4gICAgdHJhbnNpdGlvbjogYWxsIDAuNXMgZWFzZTtcclxufSJdfQ== */"
-
-/***/ }),
-
-/***/ "./src/app/app.component.html":
-/*!************************************!*\
-  !*** ./src/app/app.component.html ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"main-content\">\r\n  <div class=\"first-choice box\">\r\n    <span class=\"title title-left\">CAT</span>\r\n    <img *ngIf=\"isDataLoaded\" class=\"first-picture cat\" [src]=\"firstCat.url\" (click)=\"vote(true)\">\r\n  </div>\r\n  <div class=\"second-choice box\">\r\n    <span class=\"title title-right\">MASH</span>\r\n    <img *ngIf=\"isDataLoaded\" class=\"second-picture cat\" [src]=\"secondCat.url\" (click)=\"vote(false)\">\r\n  </div>\r\n  <div class=\"ranking-box\" (click)=\"openDialog()\">\r\n    <div class=\"ranking-box-content\">\r\n      <span class=\"ranking-box-main-text\">Voir les plus beaux chats</span>\r\n      <span class=\"ranking-box-secondary-text\">{{voteCounter}} votes</span>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -262,7 +273,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
+            template: __webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/index.js!./src/app/app.component.html"),
             providers: [_app_service__WEBPACK_IMPORTED_MODULE_2__["AppService"]],
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         }),
@@ -285,7 +296,7 @@ var CatsRankingDialog = /** @class */ (function () {
     CatsRankingDialog = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-cat-ranking-dialog',
-            template: __webpack_require__(/*! ./app-cat-ranking-dialog.html */ "./src/app/app-cat-ranking-dialog.html"),
+            template: __webpack_require__(/*! raw-loader!./app-cat-ranking-dialog.html */ "./node_modules/raw-loader/index.js!./src/app/app-cat-ranking-dialog.html"),
         })
         // tslint:disable-next-line: component-class-suffix
         ,
@@ -432,17 +443,6 @@ module.exports = ".bar-container {\r\n    width: 100%;\r\n    margin-bottom: 10p
 
 /***/ }),
 
-/***/ "./src/app/cat-ranking/cat-ranking.component.html":
-/*!********************************************************!*\
-  !*** ./src/app/cat-ranking/cat-ranking.component.html ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"bar-container\">\r\n    <img class=\"element\" [src]=\"catUrl\">\r\n    <div class=\"bar\" [style.background-color]=\"randomColor\" [style.width]=\"barWidth\">\r\n        <span>{{this.value}}</span>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
 /***/ "./src/app/cat-ranking/cat-ranking.component.ts":
 /*!******************************************************!*\
   !*** ./src/app/cat-ranking/cat-ranking.component.ts ***!
@@ -481,7 +481,7 @@ var CatRankingComponent = /** @class */ (function () {
     CatRankingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-cat-ranking',
-            template: __webpack_require__(/*! ./cat-ranking.component.html */ "./src/app/cat-ranking/cat-ranking.component.html"),
+            template: __webpack_require__(/*! raw-loader!./cat-ranking.component.html */ "./node_modules/raw-loader/index.js!./src/app/cat-ranking/cat-ranking.component.html"),
             styles: [__webpack_require__(/*! ./cat-ranking.component.css */ "./src/app/cat-ranking/cat-ranking.component.css")]
         })
     ], CatRankingComponent);
@@ -553,7 +553,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Workspaces\test\CatMash-LAtelier-LR\cat-mash-app\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! F:\Workspace\Eclipse\CatMash\cat-mash-app\src\main.ts */"./src/main.ts");
 
 
 /***/ })
